@@ -31,16 +31,28 @@ public class Empleado {
 	@ManyToMany(mappedBy = "empleados")
 	private List<Tarea> tareas;
 
+	@Column(nullable = true, length = 50)
+	private String departamento;
+
 	public Empleado() {
 		super();
 	}
 
-	public Empleado(int id, String nombre, String cargo, List<Tarea> tareas) {
+	public Empleado(int id, String nombre, String cargo, List<Tarea> tareas, String departamento) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.cargo = cargo;
 		this.tareas = tareas;
+		this.departamento = departamento;
+	}
+
+	public String getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(String departamento) {
+		this.departamento = departamento;
 	}
 
 	public int getId() {
